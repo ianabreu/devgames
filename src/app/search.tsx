@@ -3,12 +3,12 @@ import { useLocalSearchParams, useNavigation } from "expo-router";
 import { Container } from "@/src/components/Container";
 import { useEffect, useState } from "react";
 import { searchGameByGenre, searchGameByName } from "../services/GameServices";
-import { GameDTO } from "../@types/Game";
 import { CardList } from "../components/Card/CardList";
 import { Typography } from "../components/Typography";
 import { Feather as Icon } from "@expo/vector-icons";
 import { theme } from "../theme";
-import Loading, { LoadingCards } from "../components/Loading";
+import { LoadingCards } from "../components/Loading";
+import { Game } from "../@types/Game";
 
 export default function Search() {
   const {
@@ -21,7 +21,7 @@ export default function Search() {
     headerTitle?: string;
   };
   const { goBack } = useNavigation();
-  const [games, setGames] = useState<GameDTO[]>([]);
+  const [games, setGames] = useState<Game[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {

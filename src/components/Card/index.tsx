@@ -1,14 +1,13 @@
 import { Image, View } from "react-native";
 import { Link } from "expo-router";
-import { MaterialIcons as Icon } from "@expo/vector-icons";
 
 import { Typography } from "@/src/components/Typography";
 import { styles } from "./styles";
-import { GameDTO } from "@/src/@types/Game";
+import { Game } from "@/src/@types/Game";
 import Rating from "../Rating";
 
 interface CardProps {
-  data: GameDTO;
+  data: Game;
 }
 export function Card({ data }: CardProps) {
   return (

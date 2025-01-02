@@ -2,9 +2,7 @@ import {
   ColorValue,
   TouchableOpacity,
   TouchableOpacityProps,
-  View,
 } from "react-native";
-import { Feather as Icon } from "@expo/vector-icons";
 import { theme } from "@/src/theme";
 
 interface ButtonProps extends TouchableOpacityProps {
@@ -12,20 +10,24 @@ interface ButtonProps extends TouchableOpacityProps {
 }
 export function ButtonIcon({
   children,
+  style,
   color = theme.colors.background,
   ...rest
 }: ButtonProps) {
   return (
     <TouchableOpacity
-      style={{
-        width: 50,
-        height: 50,
+      style={[
+        {
+          width: 50,
+          height: 50,
 
-        alignItems: "center",
-        justifyContent: "center",
-        backgroundColor: color,
-        borderRadius: 50,
-      }}
+          alignItems: "center",
+          justifyContent: "center",
+          backgroundColor: color,
+          borderRadius: 50,
+        },
+        style,
+      ]}
       {...rest}
     >
       {children}

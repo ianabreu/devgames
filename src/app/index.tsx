@@ -1,4 +1,4 @@
-import { Suspense, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { StyleSheet, TextInput, TouchableOpacity, View } from "react-native";
 import { Feather as Icon } from "@expo/vector-icons";
 import { router } from "expo-router";
@@ -9,13 +9,14 @@ import { Logo } from "@/src/components/Logo";
 import { Typography } from "@/src/components/Typography";
 import { getGenres, getTrendingGames } from "@/src/services/GameServices";
 import { theme } from "@/src/theme";
-import { GameDTO } from "@/src/@types/Game";
+import { Game } from "@/src/@types/Game";
 import { CardList } from "../components/Card/CardList";
 import { LoadingCards, LoadingCategories } from "../components/Loading";
+import { GenreDTO } from "../@types/Genre";
 
 export default function Index() {
-  const [games, setGames] = useState<GameDTO[]>([]);
-  const [categories, setCategories] = useState<any[]>([]);
+  const [games, setGames] = useState<Game[]>([]);
+  const [categories, setCategories] = useState<GenreDTO[]>([]);
   const [search, setSearch] = useState<string>("");
   const [loadingCategories, setLoadingCategories] = useState(true);
   const [loadingGames, setLoadingGames] = useState(true);
@@ -62,7 +63,10 @@ export default function Index() {
     <Container>
       <View style={styles.row}>
         <Logo />
-        <TouchableOpacity style={styles.btn}>
+        <TouchableOpacity
+          style={styles.btn}
+          onPress={() => router.push("/favorites")}
+        >
           <Icon name="bookmark" size={24} color={theme.colors.text} />
         </TouchableOpacity>
       </View>

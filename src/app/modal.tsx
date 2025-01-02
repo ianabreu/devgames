@@ -1,4 +1,4 @@
-import { ScrollView, StatusBar, StyleSheet, View } from "react-native";
+import { ScrollView, StyleSheet, View } from "react-native";
 import { theme } from "@/src/theme";
 import { ButtonIcon } from "@/src/components/Button";
 import { Feather } from "@expo/vector-icons";

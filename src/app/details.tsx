@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Typography } from "@/src/components/Typography";
 import {
   Image,
@@ -8,22 +9,24 @@ import {
   Dimensions,
 } from "react-native";
 import { useLocalSearchParams, useRouter } from "expo-router";
-import { useEffect, useState } from "react";
 import { getGameDetails } from "../services/GameServices";
 import { Feather } from "@expo/vector-icons";
 import { Button, ButtonIcon } from "../components/Button";
 import { theme } from "../theme";
 import Rating from "../components/Rating";
-import { GameDetails } from "../@types/Game";
+import { Game } from "../@types/Game";
 import Badge from "../components/Badge";
 import { LoadingDetails } from "../components/Loading";
 import { GenreDTO } from "../@types/Genre";
+import { useGames } from "../contexts/gameContext";
 
 const { width } = Dimensions.get("screen");
 export default function Details() {
   const { id } = useLocalSearchParams();
+  const { toogleFavorites, favorites } = useGames();
+
   const router = useRouter();
-  const [game, setGame] = useState<GameDetails>({} as GameDetails);
+  const [game, setGame] = useState<Game>({} as Game);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -55,6 +58,9 @@ export default function Details() {
         description: game.description_raw,
       },
     });
+  }
+  async function handleAddGameToFavorites() {
+    await toogleFavorites(game);
   }
 
   if (loading) {
@@ -124,8 +130,16 @@ export default function Details() {
                 top: 14,
               }}
             >
-              <ButtonIcon>
-                <Feather name="bookmark" size={30} color={theme.colors.text} />
+              <ButtonIcon onPress={handleAddGameToFavorites}>
+                <Feather
+                  name="bookmark"
+                  size={30}
+                  color={
+                    favorites.some((item) => item.id === game.id)
+                      ? theme.colors.primary
+                      : theme.colors.text
+                  }
+                />
               </ButtonIcon>
             </View>
             <View style={{ position: "absolute", right: 14, bottom: -25 }}>
@@ -146,6 +160,12 @@ export default function Details() {
           <View style={[styles.section, { marginTop: 38 }]}>
             <Rating rating={game.rating} />
             <Typography variant="title">{game.name}</Typography>
+            <Typography variant="body">
+              Data de lançamento:{" "}
+              {new Date(game.released).toLocaleDateString("pt-BR", {
+                dateStyle: "short",
+              })}
+            </Typography>
           </View>
 
           <View style={styles.section}>

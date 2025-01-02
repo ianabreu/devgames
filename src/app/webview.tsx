@@ -2,7 +2,7 @@ import { useLocalSearchParams, useRouter } from "expo-router";
 
 import { WebView } from "react-native-webview";
 import { Container } from "../components/Container";
-import { StatusBar, View } from "react-native";
+import { View } from "react-native";
 import { ButtonIcon } from "../components/Button";
 import { Feather } from "@expo/vector-icons";
 import { theme } from "../theme";
