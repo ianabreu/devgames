@@ -4,6 +4,7 @@ import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import { theme } from "@/src/theme";
 import { SafeAreaView } from "react-native";
+import { GameProvider } from "../contexts/gameContext";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -24,39 +25,44 @@ export default function RootLayout() {
   }
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: theme.colors.background }}>
-      <Stack
-        initialRouteName="index"
-        screenOptions={{
-          headerShown: false,
-          headerBackTitleStyle: { fontFamily: "Sora-Bold" },
-          navigationBarColor: theme.colors.background,
-
-          statusBarStyle: "light",
-          statusBarTranslucent: false,
-          statusBarAnimation: "fade",
-          statusBarBackgroundColor: theme.colors.background,
-          animation: "slide_from_right",
-        }}
+    <GameProvider>
+      <SafeAreaView
+        style={{ flex: 1, backgroundColor: theme.colors.background }}
       >
-        <Stack.Screen
-          name="index"
-          options={{
+        <Stack
+          initialRouteName="index"
+          screenOptions={{
+            headerShown: false,
+            headerBackTitleStyle: { fontFamily: "Sora-Bold" },
+            navigationBarColor: theme.colors.background,
+
+            statusBarStyle: "light",
             statusBarTranslucent: false,
+            statusBarAnimation: "fade",
+            statusBarBackgroundColor: theme.colors.background,
+            animation: "slide_from_right",
           }}
-        />
-        <Stack.Screen
-          name="modal"
-          options={{
-            presentation: "fullScreenModal",
-            navigationBarColor: theme.colors.shape,
-            animation: "slide_from_bottom",
-          }}
-        />
-        <Stack.Screen name="details" />
-        <Stack.Screen name="search" />
-        <Stack.Screen name="webview" />
-      </Stack>
-    </SafeAreaView>
+        >
+          <Stack.Screen
+            name="index"
+            options={{
+              statusBarTranslucent: false,
+            }}
+          />
+          <Stack.Screen
+            name="modal"
+            options={{
+              presentation: "fullScreenModal",
+              navigationBarColor: theme.colors.shape,
+              animation: "slide_from_bottom",
+            }}
+          />
+          <Stack.Screen name="details" />
+          <Stack.Screen name="search" />
+          <Stack.Screen name="webview" />
+          <Stack.Screen name="favorites" />
+        </Stack>
+      </SafeAreaView>
+    </GameProvider>
   );
 }
