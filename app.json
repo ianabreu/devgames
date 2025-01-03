@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "devgames",
+    "name": "DevGames",
     "slug": "devgames",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -20,7 +20,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#050B18"
-      }
+      },
+      "package": "com.abreusoft.devgames"
     },
     "web": {
       "bundler": "metro",
@@ -35,10 +36,6 @@
           "backgroundColor": "#050B18",
           "image": "./assets/images/splash-icon.png",
           "imageWidth": 200,
-          "dark": {
-            "image": "./assets/splash-icon-dark.png",
-            "backgroundColor": "#050B18"
-          },
           "resizeMode": "contain"
         }
       ],
@@ -54,6 +51,14 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "a1f71e81-366c-4ee6-9a1c-cd9fd1cd0b02"
+      }
     }
   }
 }
