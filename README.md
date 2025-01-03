@@ -2,7 +2,7 @@
 
 Este é o **DevGames**, um aplicativo para listar e explorar jogos, criado como parte de um desafio técnico. O app permite buscar jogos por nome, explorar categorias, visualizar detalhes, e gerenciar uma lista de favoritos. Tudo isso com uma interface moderna e funcional!
 
-![DevGames](https://github.com/ianabreu/devgames/tree/main/assets/images/bg.jpg)
+![DevGames](https://raw.githubusercontent.com/ianabreu/devgames/refs/heads/main/assets/images/bg.jpg)
 
 ## 🚀 Funcionalidades
 
