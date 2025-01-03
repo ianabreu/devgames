@@ -1,50 +1,76 @@
-# Welcome to your Expo app 👋
+# DevGames 🎮
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Este é o **DevGames**, um aplicativo para listar e explorar jogos, criado como parte de um desafio técnico. O app permite buscar jogos por nome, explorar categorias, visualizar detalhes, e gerenciar uma lista de favoritos. Tudo isso com uma interface moderna e funcional!
 
-## Get started
+![DevGames](https://github.com/ianabreu/devgames/tree/main/assets/images/bg.jpg)
 
-1. Install dependencies
+## 🚀 Funcionalidades
 
+### Home
+
+- **Listagem de jogos:** Mostra todos os jogos com base na API fornecida.
+- **Categorias:** Lista todas as categorias, permitindo clicar para acessar os jogos da categoria selecionada.
+- **Busca:** Campo para buscar jogos pelo nome.
+
+### Detalhes do jogo
+
+- Exibe informações como:
+  - Nome
+  - Data de lançamento
+  - Avaliação
+  - Plataformas disponíveis
+  - Gêneros
+  - Descrição
+- **Modal:** Botão para visualizar toda a descrição do jogo em um modal.
+- **Acesso ao site:** Botão que direciona ao site oficial do jogo.
+
+### Busca
+
+- Mostra resultados da pesquisa pelo termo inserido.
+- Permite navegar até a página de um gênero específico ao clicar em uma categoria.
+
+### Favoritos
+
+- Lista de jogos favoritos:
+  - Adicionar e remover jogos.
+  - Armazenamento local com **Async Storage**.
+
+## 🛠 Tecnologias Utilizadas
+
+- **Frameworks:** [React Native](https://reactnative.dev/) com [Expo](https://expo.dev/).
+- **Linguagem:** TypeScript.
+- **Estilização:** Stylesheet padrão.
+
+## 🔗 API
+
+A API utilizada é da [RAWG.io](https://rawg.io/apidocs).
+
+## 🎨 Design
+
+O layout foi desenvolvido com base no design fornecido no Figma.
+
+## 📂 Estrutura do Projeto
+
+- **Home:** Página inicial com listagem de jogos e categorias.
+- **Detalhes:** Página de detalhes de um jogo específico.
+- **Favoritos:** Lista local de jogos favoritos com gerenciamento.
+- **Busca:** Resultados dinâmicos baseados no termo inserido.
+
+## 💻 Instalação e Execução
+
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/ianabreu/devgames.git
+   ```
+   Instale as dependências:
    ```bash
    npm install
    ```
-
-2. Start the app
-
+   Inicie o projeto:
    ```bash
-    npx expo start
+   expo start
    ```
 
-In the output, you'll find options to open the app in a
+## 🏅 Agradecimentos
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Agradecimentos ao Sujeito Programador pelo desafio e suporte!
